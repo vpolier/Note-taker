@@ -1,6 +1,12 @@
 const express = require('express');
 const path = require('path');
-const PORT = 3001;
+const webRouter = require('./routes/api');
+const PORT = process.env.PORT || 3001;
+
+// web routs serve htmls
+
+app.use(webRouter);
+// api routs serve json
 
 const app = express();
 
@@ -10,9 +16,10 @@ app.use(express.urlencoded({ extended: true }));
 
 // tell the server look in public folder for extra files the cliente needs
 app.use(express.static('public'));
+app.use("/api/notes", notesRouter) ;
 
 // GET Route for home page
-app.get('/', (req, res) =>
+app.get('/*', (req, res) =>
     res.sendFile(path.join(_dirname, '/public/index.html'))
 );
 
@@ -22,5 +29,5 @@ app.get('/notes', (req, res) =>
 );
 
 app.listen(PORT,()=> {
-    console.log ("server is listening")
-})
+    console.log ("server is listening on http://localhost:" + PORT)
+});
