@@ -31,3 +31,10 @@ app.get('/notes', (req, res) =>
 app.listen(PORT,()=> {
     console.log ("server is listening on http://localhost:" + PORT)
 });
+
+const PORT = process.env.PORT || 4000
+
+app.listen(PORT, function() {
+
+    console.log("server listening in port", PORT)
+})
