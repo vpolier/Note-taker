@@ -5,10 +5,11 @@ const PORT = process.env.PORT || 3001;
 
 // web routs serve htmls
 
+const app = express();
+
 app.use(webRouter);
 // api routs serve json
 
-const app = express();
 
 // Hiddleware for pasing JSON and urlencoded from data 
 app.use(express.json());
@@ -31,10 +32,3 @@ app.get('/notes', (req, res) =>
 app.listen(PORT,()=> {
     console.log ("server is listening on http://localhost:" + PORT)
 });
-
-const PORT = process.env.PORT || 4000
-
-app.listen(PORT, function() {
-
-    console.log("server listening in port", PORT)
-})
