@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const webRouter = require('./routes/api');
 const PORT = process.env.PORT || 3001;
-const _dirname = "";
+// const _dirname = "";
 
 // web routs serve htmls
 

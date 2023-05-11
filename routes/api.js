@@ -5,6 +5,16 @@ const { v4: uuidv4 } = require('uuid');
 // assign database file name to a const variable
 const dbFile = "./db/db.json";
 
+// GET Route for home page
+app.get("/", (req, res) =>
+  res.sendFile(path.join(__dirname, "./public/index.html"))
+);
+
+//to send back the note.html
+app.get("/notes", (req, res) =>
+  res.sendFile(path.join(__dirname, "./public/notes.html"))
+);
+
 // initiate notes router
 const notes = express.Router();
 
