@@ -6,12 +6,14 @@ const { v4: uuidv4 } = require('uuid');
 const dbFile = "./db/db.json";
 
 // GET Route for home page
-app.get("/", (req, res) =>
-  res.sendFile(path.join(__dirname, "./public/index.html"))
+app.get("/", (_req, res) =>
+  {
+    return res.sendFile(path.join(__dirname, "./public/index.html"));
+  }
 );
 
 //to send back the note.html
-app.get("/notes", (req, res) =>
+app.get("/notes", (_req, res) =>
   res.sendFile(path.join(__dirname, "./public/notes.html"))
 );
 
@@ -19,18 +21,18 @@ app.get("/notes", (req, res) =>
 const notes = express.Router();
 
 // API Route : "GET /api/notes" for retrieving all the notes
-notes.get("/", (req, res) => {
-  // read data from file
-  fs.readFile(dbFile, "utf8", (err, data) => {
-    if (err) {
-      console.error(err);
-      res.status(500).send(err);
-    } else {
-      // send data to client
-      res.status(200).json(JSON.parse(data))
-    }
-  })
-});
+notes.get("/", (_req, res) => {
+    // read data from file
+    fs.readFile(dbFile, "utf8", (err, data) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send(err);
+      } else {
+        // send data to client
+        res.status(200).json(JSON.parse(data));
+      }
+    });
+  });
 // API Route : "POST /api/notes" for creating new note
 notes.post("/", (req, res) => {
     // check if request body is empty
