@@ -17,7 +17,7 @@ app.use(express.static('public'));
 app.use("/api/notes", webRouter) ;
 
 // GET Route for home page
-app.get('/*', (req, res) =>
+app.get("/", (req, res) =>
     res.sendFile(path.join(__dirname, '/public/index.html'))
 );
 

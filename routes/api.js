@@ -7,7 +7,7 @@ const dbFile = "./db/db.json";
 const app = express()
 
 // GET Route for home page
-app.get("/", (_req, res) =>
+ app.get("/", (_req, res) =>
   {
     return res.sendFile(path.join(__dirname, "./public/index.html"));
   }
