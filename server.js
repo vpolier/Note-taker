@@ -29,3 +29,7 @@ app.get('/notes', (req, res) =>
 app.listen(PORT,()=> {
     console.log ("server is listening on http://localhost:" + PORT)
 });
+
+router.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/index.html'));
+  });
