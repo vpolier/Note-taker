@@ -18,18 +18,17 @@ app.use("/api/notes", webRouter) ;
 
 // GET Route for home page
 app.get('/*', (req, res) =>
-    res.sendFile(path.join(_dirname, '/public/index.html'))
+    res.sendFile(path.join(__dirname, '/public/index.html'))
 );
 
 //to send back the note.html
 app.get('/notes', (req, res) =>
-    res.sendFile(path.join(_dirname, '/public/notes.html'))
+    res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
 
 app.listen(PORT,()=> {
     console.log ("server is listening on http://localhost:" + PORT)
 });
-
-router.get('*', (req, res) => {
+app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/index.html'));
   });
